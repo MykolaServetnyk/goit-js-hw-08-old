@@ -21,15 +21,7 @@ function createBoxItem(galleryItems) {
         .join('');
 }
 
-lightboxRef.addEventListener('click', onBoxRefClick);
-
-function onBoxRefClick(event) {
-    event.preventDefault();
-    if (!event.target.classList.contains('gallery__image')) {
-        return;
-    }
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-    });
-}
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+});

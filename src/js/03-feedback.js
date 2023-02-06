@@ -13,7 +13,7 @@ function onFormInput(evt) {
     formData[evt.target.name] = evt.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
     console.log(formData);
-}
+};
 
 function onFormSubmit(evt) {
     evt.preventDefault();
@@ -24,8 +24,8 @@ function onFormSubmit(evt) {
     if (email.value === '' || message.value === '') {
         return window.alert('input fields not filled!');
     }
-    console.log({ Email: email.value, Message: message.value });
-    formEl.reset();
+    console.log({ email: email.value, message: message.value });
+    evt.target.reset();
     localStorage.removeItem(STORAGE_KEY);
 }
 
@@ -34,8 +34,5 @@ function updateForm() {
         return;
     }
     const savedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    Object.entries(savedForm).forEach(([name, value]) => {
-        formData[name] = value;
-        formEl.elements[name].value = value;
-    });
+
 }
