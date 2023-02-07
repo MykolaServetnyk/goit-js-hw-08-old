@@ -35,4 +35,8 @@ function updateForm() {
     }
     const savedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
+    Object.entries(savedForm).forEach(([name, value]) => {
+        formData[name] = value;
+        formEl.elements[name].value = value;
+    });
 }
